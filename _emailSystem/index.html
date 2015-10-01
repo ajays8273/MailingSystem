@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html >
+<body > 				
+<div class="login">
+
+		<form action="/cgi-bin/_emailSystem/login.py" method="post" enctype="multipart/form-data">
+		<table align ="center">
+		<tr>Email System Welcome</tr>
+		<tr><td>email_id</td><td><input type="text" name = "username"></td>
+		<tr><td>password</td><td><input type="password" name = "password"></td>
+		<tr><td><input type="submit" name = "login" value = "login"></td></tr>
+		</tbody>
+		</div>
+		</table>			
+</form>
+<br><br>
+<div class="register">
+
+		<form action="/cgi-bin/_emailSystem/register.py" method="post" onsubmit = "return check_password()" enctype="multipart/form-data">
+		<table align ="center">
+		<tr><td>email-id</td><td><input type="text" name = "email-id"></td>
+		<tr><td>username</td><td><input type="text" name = "username" ></td>
+		<tr><td>password</td><td><input type="password" name = "password" id="ppp"></td>
+		<tr><td>retype-password</td><td><input type="password" name = "rpassword" id="rppp"></td>
+		<tr><td>University</td><td><input type="text" name = "University"></td></tr>
+		<tr><td>dob</td><td><input type="datetime-local" name = "dob" id ="dob"></td></tr>
+		<tr><td><input type="submit" name = "register" value = "register"></td></tr>
+		</tbody>
+		</div>
+		</table>			
+</form>
+</body>
+</html>
+
+<script type="text/javascript">
+function check_password(){
+	var a = document.getElementById("dob").value;
+	if(document.getElementById('ppp').value!=document.getElementById('rppp').value)
+	{
+			window.alert("passwords do not match, Try Again");
+			return false;
+	}
+	else {
+		return true;
+	}
+}
+</script>

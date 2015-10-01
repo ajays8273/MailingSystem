@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+ 
+</head>
+<body>
+<br><br><br><br><br><br><br><br>
+
+		<div style="width:500px; margin:0 auto;">
+       
+    
+		<form action="/cgi-bin/_emailSystem/compose.py" method= "post" enctype="multipart/form-data" >
+		
+		To:<br>
+		<input type="text" size=20 name="rec_email">
+		<br><br>
+		Subject:<br>
+		<input type="text" size=50 name="subject"><br><br>
+		Message:<br>
+		<textarea
+			 type="text" rows="20" cols="50" name="message" >
+		</textarea><br>
+		Select a file: <input type="file" name="file"	>
+ 		
+		<input type="submit" value="Send" name="Send">	
+		<input type="submit" value="Save_Draft" name="Save_Draft"><br>
+		<input type="datetime" name="datetime">
+		<input type="submit" value="schedule_draft" name ="schedule_draft"><br>
+		Priority:
+		<select name ="Prior">
+			  <option value="high">High</option>
+			  <option value="medium">Medium</option>
+			  <option value="low">Low</option>
+			  
+		</select> 		
+</form>
+</div>
+</body>
+</html>
+

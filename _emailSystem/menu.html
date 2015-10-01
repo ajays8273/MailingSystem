@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<title>Mailing System</title>
+<head>
+<script type="text/javascript">
+function delete_cookies(){
+    document.cookie = "page=1;";
+}
+</script>
+<style type="text/css">
+        td { width: 30px; overflow: scroll; }
+    </style>
+<style>
+ul {
+    float: left;
+    max-height: 1000px
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+a {
+    float: left;
+    width: 10em;
+    text-decoration: none;
+    color: white;
+    background-color: purple;
+    padding: 0.2em 0.6em;
+    border-right: 1px solid white;
+}
+
+a:hover {
+    background-color: fuchsia;
+}
+
+li {
+    display: inline;
+}
+</style>
+</head>
+<body>
+
+<ul>
+<li><a href='parag_compose.py' onclick = 'delete_cookies()'>Compose</a></li>
+<li><a href='inbox.py' onclick = 'delete_cookies()' >Inbox</a></li>
+<li><a href='sent.py' onclick = 'delete_cookies()' >Sent</a></li>
+<li><a href='draft.py' onclick = 'delete_cookies()' >Drafts</a></li>
+<li><a href='schedule_draft.py' onclick = 'delete_cookies()' >Schedule-Draft</a></li>
+<li><a href='settings.py' onclick = 'delete_cookies()'>Settings</a></li>
+<li><a href='logout.py' onclick = 'delete_cookies()' >logout</a></li>
+
+</ul>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>

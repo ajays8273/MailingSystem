@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html >
+<title>Mailing System</title>
+<body > 				
+
+<head>
+<meta charset="utf-8">
+<title>jQuery UI Datepicker - Default functionality</title>
+<link rel="stylesheet" href="style.css">
+<script src="1.js"></script>
+<script src="2.js"></script>
+ <script>
+$(function() {
+$( "#datepicker" ).datepicker();
+$( "#format" ).change(function() {
+$( "#datepicker" ).datepicker( "option", "dateFormat", $( this ).val() );
+});
+});
+</script>
+
+
+
+<div class="login" align = "left">
+		<form action="/cgi-bin/_emailSystem/login.py" method="post" enctype="multipart/form-data">
+		<table align ="center">
+		<tr><td>Email System Welcome<td></tr><br><br>
+		<tr><td>email_id</td><td><input type="text" name = "username"></td>
+		<tr><td>password</td><td><input type="password" name = "password"></td>
+		<tr><td><input type="submit" name = "login" value = "login"></td></tr>
+		</tbody>
+		</div>
+		</table>			
+</form>
+<br><br>
+
+
+<div class="register" align = "right">
+
+		<form action="/cgi-bin/_emailSystem/register.py" method="post" onsubmit = "return check_password()" enctype="multipart/form-data">
+		<table align ="center">
+		<tr><td>email-id</td><td><input type="text" name = "email-id" id = "id"></td>
+		<tr><td>username</td><td><input type="text" name = "username" id ="1"></td>
+		<tr><td>password</td><td><input type="password" name = "password" id="ppp"></td>
+		<tr><td>retype-password</td><td><input type="password" name = "rpassword" id="rppp"></td>
+		<tr><td>University</td><td><input type="text" name = "University" id ="2"></td></tr>
+		<tr><td>dob</td><td> <input type="datetime-local" name="dob" id="datepicker" ></td>
+		<tr><td><input type="submit" name = "register" value = "register" id ="3"></td></tr>
+		</tbody>
+		</div>
+		</table>			
+</form>
+</body>
+<id = "format" value = "yy-mm-dd"></id>
+
+
+
+
+<script type="text/javascript">
+function check_password(){
+	if( document.getElementById('ppp').value!= "" && 
+		document.getElementById('ppp').value!= NULL && 
+		document.getElementById('ppp').value!=document.getElementById('rppp').value)
+	{
+			window.alert("passwords do not match, Try Again");
+			return false;
+	}
+	else 
+	{
+		var one = document.getElementById("id").value;
+		var two = document.getElementById("1").value;
+		var three = document.getElementById("ppp").value;
+		var four = document.getElementById("rppp").value;
+		var five = document.getElementById("2").value;
+		var six = document.getElementById("datepicker").value;
+		var seven = document.getElementById("3").value;
+
+		if( one == null || one == ""  ||
+			two == null || two == ""  ||
+			three == null || three == ""  ||
+			four == null || four == ""  ||
+			five == null || five == ""  ||
+			six == null || six == ""  ||   
+			seven == null || seven == ""     )
+			{
+				alert("all values must be filled out");
+			        return false;
+			}
+
+		var email = document.getElementById('id').value;
+		var re = new RegExp("^[a-zA-Z0-9_]*$"); 
+		if(!re.test(email))
+		{
+			alert("Not a valid email-address!!");
+		} 
+		return re.test(email);
+	}
+}
+</script>

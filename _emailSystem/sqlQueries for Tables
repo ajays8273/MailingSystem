@@ -1,0 +1,64 @@
+1. 
+CREATE TABLE `email_system`.`login_table` (
+  `email_id` VARCHAR(200) NOT NULL,
+  `password` VARCHAR(100) NOT NULL,
+  `user_name` VARCHAR(45) NOT NULL,
+  `university` VARCHAR(45) NOT NULL,
+  `dob` DATETIME NOT NULL,
+  PRIMARY KEY (`email_id`));
+
+2.
+CREATE TABLE `email_system`.`email_table` (
+  `sender_email` INT NOT NULL,
+  `reciever_email` VARCHAR(45) NOT NULL,
+  `subject` VARCHAR(45) NULL,
+  `attachement` BLOB NULL,
+  `priority` ENUM('low','medium','high') NOT NULL,
+  `time_stamp` TIMESTAMP NOT NULL,
+  `flag` BIT(1) NULL,
+  `sender_folder` VARCHAR(45) NULL,
+  `reciever_folder` VARCHAR(45) NULL,
+  `mail_body` TEXT NULL,
+  PRIMARY KEY (`sender_email`, `reciever_email`, `time_stamp`));
+
+3.
+CREATE TABLE `email_system`.`schedule_draft_table` (
+  `sender_email` VARCHAR(200) NOT NULL,
+  `receiver_email` VARCHAR(200) NOT NULL,
+  `subject` VARCHAR(45) NULL,
+  `priority` ENUM('low','medium','high') NOT NULL,
+  `mail_body` TEXT NULL,
+  `attachement` BLOB NULL,
+  `schedule_time` DATETIME NOT NULL,
+  PRIMARY KEY (`sender_email`, `receiver_email`, `schedule_time`));
+
+4.
+CREATE TABLE `email_system`.`draft_table` (
+  `sender_email` VARCHAR(200) NOT NULL,
+  `reciever_email` VARCHAR(200) NOT NULL,
+  `subject` VARCHAR(45) NULL,
+  `priority` ENUM('low','medium','high') NOT NULL,
+  `mail_body` TEXT NULL,
+  `attachement` BLOB NULL,
+  `draft_id` INT NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`draft_id`, `sender_email`, `reciever_email`));
+
+5.
+CREATE TABLE `email_system`.`folder_table` (
+  `email_id` VARCHAR(200) NOT NULL,
+  `folder` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`email_id`, `folder`));
+
+6. 
+CREATE TABLE `email_system`.`filter_table` (
+  `email_id` VARCHAR(200) NOT NULL,
+  `filter_type` INT NOT NULL,
+  `action` VARCHAR(100) NOT NULL,
+  `filter_value` VARCHAR(100) NOT NULL,
+  PRIMARY KEY (`email_id`, `filter_type`, `filter_value`));
+
+
+// from 0
+// subject 1
+// priority 2
+
